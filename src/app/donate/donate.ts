@@ -9,7 +9,7 @@ import { StripeService, Elements, Element as StripeElement, ElementsOptions } fr
     
 })
 
-export class DonateComponent implements OnInit
+export class DonateComponent 
 {
     donateForm: FormGroup;
     message: string;
@@ -24,10 +24,10 @@ export class DonateComponent implements OnInit
     
     constructor(private fb: FormBuilder, private stripeService: StripeService) 
     {
-        //this.createForm();
+        this.createForm();
     }
     
-    ngOnInit()
+    createForm()
     {
         this.donateForm = this.fb.group({
           amount: ['',Validators.required],
@@ -41,7 +41,7 @@ export class DonateComponent implements OnInit
           exp_yr: ['',Validators.required],
           secure_code: ['',Validators.required]
         });
-        this.stripeService.elements(this.elementsOptions)
+       /*this.stripeService.elements(this.elementsOptions)
       .subscribe(elements => {
         this.elements = elements;
         // Only mount the element the first time
@@ -63,12 +63,12 @@ export class DonateComponent implements OnInit
           });
           this.card.mount('#card-element');
         }
-      });
+      });*/
     }
     
     onSubmit()
     {
-        const name = this.donateForm.get('name').value;
+        /*const name = this.donateForm.get('name').value;
         this.stripeService
           .createToken(this.card, { name })
           .subscribe(result => {
@@ -80,8 +80,9 @@ export class DonateComponent implements OnInit
               // Error creating the token
               console.log(result.error.message);
             }
-          });
-        /*(<any>window).Stripe.card.createToken({
+          });*/
+      
+        (<any>window).Stripe.card.createToken({
           number: this.donateForm.value.card_no,
           exp_month: this.donateForm.value.exp_month,
           exp_year: this.donateForm.value.exp_yr,
@@ -92,7 +93,7 @@ export class DonateComponent implements OnInit
           } else {
             this.message = response.error.message;
           }
-        });*/
+        });
     
     }
 }
