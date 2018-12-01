@@ -1,0 +1,147 @@
+<navbar-component></navbar-component>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 card">
+            <div class="card-body text-center">
+                <h2 class="card-title" style="font-weight: bold; letter-spacing: .1em">
+                    Donate
+                </h2>
+                <hr>
+                <form [formGroup]="donateForm" (ngSubmit)="onSubmit()">
+                    <label for="basic-url">Enter Donation amount</label>
+                    <div class="input-group mb-3  input-group-lg">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                      </div>
+                      <input type="text" class="form-control input-lg" 
+                             formControlName="amount" required
+                             aria-label="Amount (to the nearest dollar)">
+                      <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                      </div>
+                        
+                    </div>
+                    <div class="row">
+                    
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">FirstName</span>
+                                  </div>
+                                  <input type="text" class="form-control"
+                                         formControlName="f_name"
+                                         aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                        
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">LastName</span>
+                                  </div>
+                                  <input type="text" formControlName="l_name" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                        
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Email</span>
+                      </div>
+                      <input type="text" formControlName="email" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">Country</span>
+                              </div>
+                              <input type="text" id="card-element" formControlName="country" 
+                                     
+                                     class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                        
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Zip Code</span>
+                          </div>
+                          <input type="text" id="card-element" name="address_zip"
+                                 data-stripe="address_zip"  formControlName="zip_code"class="form-control"
+                                 aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                        
+                    </div>
+                    <div id="card-element" class="field"></div>
+                      <button type="submit">
+                        BUY
+                      </button>
+<!--
+                    <div id="card-info" #cardInfo></div>
+                    <div id="card-errors" role="alert" *ngIf="error">{{ error }}</div>
+-->
+<!--
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="input-group mb-3" id="card-element">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    Credit Card Number</span>
+                              </div>
+                              <input size="20" type="text" name="card-number" formControlName="card_no" class="form-control" aria-label="Username" aria-describedby="basic-addon1" data-stripe="number">
+                            </div>
+                            <div id="card-errors" role="alert"></div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group mb-3" id="card-element">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Expiration Month</span>
+                                          </div>
+                                <input type="text" 
+                                       data-stripe="exp_month"formControlName="exp_month" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                        </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group mb-3" id="card-element">
+                                          <div class="input-group-prepend" >
+                                            <span class="input-group-text" id="basic-addon1">Expiration Year</span>
+                                          </div>
+                                          <input type="text"
+                                                 formControlName="exp_yr"
+                                                 class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                        </div>
+                                </div>
+                        
+                            </div>
+                            <div class="input-group mb-3" id="card-element">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" 
+                                      id="basic-addon1">
+                                    Security Code</span>
+                              </div>
+                              <input type="text" class="form-control" formControlName="secure_code" data-stripe="cvc"  aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                    </div>
+-->
+                    <br>
+                    <button style="width: 200px; font-weight: bold;" class="btn btn-lg btn-success" type="submit" [disabled]="donateForm.invalid">
+                        DONATE
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
